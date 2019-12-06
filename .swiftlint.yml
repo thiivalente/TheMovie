@@ -1,0 +1,12 @@
+disabled_rules:
+ - control_statement
+ - comma
+ - identifier_name
+line_length:
+ - 300 # error
+
+force_cast:
+ severity: warning # explicity
+
+nesting:
+ type_level: 3
