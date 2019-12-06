@@ -8,26 +8,24 @@
 
 import Foundation
 
-protocol MovieViewModelProtocol {
-    func fetchedMovies(movies: [Movie])
+protocol MovieAPIProtocol {
+    func listMovies(page: Int, _ completion: @escaping ([Movie]) -> Void)
 }
 
-class MovieViewModel {
+protocol MovieWorkerProtocol {
+    func fetchMovies(in page: Int, _ completion: @escaping ([Movie]) -> Void)
+}
 
-    lazy var currentPage: Int = {
-        return 1
-    }()
+class MovieWorker: MovieWorkerProtocol {
 
     let api = MovieAPI()
-    let interector: MovieViewModelProtocol!
 
-    init(interector: MovieViewModelProtocol) {
-        self.interector = interector
-    }
-
-    func fetchMovies() {
-        api.listMovies(page: currentPage) { (movies) in
-            self.interector.fetchedMovies(movies: movies)
+    func fetchMovies(in page: Int = 10, _ completion: @escaping ([Movie]) -> Void) {
+        api.listMovies(page: page) { (movies) in
+            DispatchQueue.main.async {
+                completion(movies)
+            }
         }
     }
+
 }
