@@ -81,7 +81,7 @@ class NetworkService: NetworkServiceProtocol {
 
                     let jsonDecoder = JSONDecoder()
                     jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
-                    let decodedObject = try JSONDecoder().decode(T.self, from: data)
+                    let decodedObject = try jsonDecoder.decode(T.self, from: data)
                     DispatchQueue.main.async {
                         completionHandler(.success(decodedObject))
                     }

@@ -9,7 +9,7 @@
 import Foundation
 
 enum TMDbApi {
-    case fetchPopularMovies(in page: Int)
+    case fetchPopularMovies(page: Int)
 }
 
 extension TMDbApi: EndpointType {
@@ -38,7 +38,7 @@ extension TMDbApi: EndpointType {
 
     var path: String {
         switch self {
-        case .fetchPopularMovies(let page):
+        case .fetchPopularMovies:
             return "/movie/popular"
         }
     }
@@ -47,8 +47,6 @@ extension TMDbApi: EndpointType {
         switch self {
         case .fetchPopularMovies(let page):
             return "&\(page)"
-        default:
-            return ""
         }
     }
 

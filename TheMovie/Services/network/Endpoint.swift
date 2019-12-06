@@ -19,4 +19,3 @@ protocol EndpointType {
     var body: String? { get }
     var headers: [String: String]? { get }
 }
-
