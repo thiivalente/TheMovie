@@ -20,7 +20,7 @@ struct Movie: Decodable {
     var title: String
     var posterPath: String?
     var adult: Bool
-    var voteAvarage: Double
+    var voteAverage: Double
     var overview: String
     var releaseDate: String
 }
