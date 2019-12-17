@@ -21,10 +21,13 @@
 		1B2F7D2B239AF8F9008243C8 /* MovieCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B2F7D2A239AF8F9008243C8 /* MovieCollectionView.swift */; };
 		1B2F7D2D239AF95E008243C8 /* ViewCodeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B2F7D2C239AF95E008243C8 /* ViewCodeProtocol.swift */; };
 		1B2F7D30239AFB00008243C8 /* MovieCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B2F7D2F239AFB00008243C8 /* MovieCollectionViewCell.swift */; };
+		1B8A65EB23A9497E0098A07C /* FullScreenActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8A65EA23A9497E0098A07C /* FullScreenActivityIndicator.swift */; };
+		1B8A65ED23A949E90098A07C /* UIColor+RGBA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8A65EC23A949E90098A07C /* UIColor+RGBA.swift */; };
 		1B91A8F3239AFD4A0045355D /* UIEdgeInsets+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B91A8F2239AFD4A0045355D /* UIEdgeInsets+Extension.swift */; };
 		1BB1724A23A9217D0041ED36 /* AppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB1724923A9217D0041ED36 /* AppViewController.swift */; };
 		1BB1724C23A9251F0041ED36 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB1724B23A9251F0041ED36 /* HomeView.swift */; };
 		1BB1724E23A9284F0041ED36 /* UIImageView+DownloadImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB1724D23A9284F0041ED36 /* UIImageView+DownloadImage.swift */; };
+		1BB1725023A946B70041ED36 /* UIView+ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB1724F23A946B60041ED36 /* UIView+ActivityIndicator.swift */; };
 		1BD1B496239A6FC8004D09F9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD1B495239A6FC8004D09F9 /* AppDelegate.swift */; };
 		1BD1B498239A6FC8004D09F9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD1B497239A6FC8004D09F9 /* SceneDelegate.swift */; };
 		1BD1B49A239A6FC8004D09F9 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD1B499239A6FC8004D09F9 /* HomeViewController.swift */; };
@@ -60,10 +63,13 @@
 		1B2F7D2A239AF8F9008243C8 /* MovieCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCollectionView.swift; sourceTree = "<group>"; };
 		1B2F7D2C239AF95E008243C8 /* ViewCodeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCodeProtocol.swift; sourceTree = "<group>"; };
 		1B2F7D2F239AFB00008243C8 /* MovieCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCollectionViewCell.swift; sourceTree = "<group>"; };
+		1B8A65EA23A9497E0098A07C /* FullScreenActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenActivityIndicator.swift; sourceTree = "<group>"; };
+		1B8A65EC23A949E90098A07C /* UIColor+RGBA.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UIColor+RGBA.swift"; path = "TheMovie/Utils/Extensions/UIColor+RGBA.swift"; sourceTree = SOURCE_ROOT; };
 		1B91A8F2239AFD4A0045355D /* UIEdgeInsets+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIEdgeInsets+Extension.swift"; sourceTree = "<group>"; };
 		1BB1724923A9217D0041ED36 /* AppViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppViewController.swift; path = TheMovie/Utils/AppViewController.swift; sourceTree = SOURCE_ROOT; };
 		1BB1724B23A9251F0041ED36 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		1BB1724D23A9284F0041ED36 /* UIImageView+DownloadImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UIImageView+DownloadImage.swift"; path = "TheMovie/Utils/Extensions/UIImageView+DownloadImage.swift"; sourceTree = SOURCE_ROOT; };
+		1BB1724F23A946B60041ED36 /* UIView+ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UIView+ActivityIndicator.swift"; path = "TheMovie/utils/Extensions/UIView+ActivityIndicator.swift"; sourceTree = SOURCE_ROOT; };
 		1BD1B492239A6FC8004D09F9 /* TheMovie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TheMovie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1BD1B495239A6FC8004D09F9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1BD1B497239A6FC8004D09F9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -114,6 +120,8 @@
 				1B2F7D0A239A7A93008243C8 /* UIView+Extension.swift */,
 				1B91A8F2239AFD4A0045355D /* UIEdgeInsets+Extension.swift */,
 				1BB1724D23A9284F0041ED36 /* UIImageView+DownloadImage.swift */,
+				1B8A65EC23A949E90098A07C /* UIColor+RGBA.swift */,
+				1BB1724F23A946B60041ED36 /* UIView+ActivityIndicator.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -183,6 +191,7 @@
 			isa = PBXGroup;
 			children = (
 				1B2F7D2F239AFB00008243C8 /* MovieCollectionViewCell.swift */,
+				1B8A65EA23A9497E0098A07C /* FullScreenActivityIndicator.swift */,
 			);
 			path = components;
 			sourceTree = "<group>";
@@ -392,7 +401,9 @@
 				1B2F7D1B239A9970008243C8 /* Movie.swift in Sources */,
 				1B2F7D18239A986C008243C8 /* MovieAPI.swift in Sources */,
 				1B2F7D13239A8E71008243C8 /* NetworkService.swift in Sources */,
+				1B8A65EB23A9497E0098A07C /* FullScreenActivityIndicator.swift in Sources */,
 				1B2F7D21239AE38D008243C8 /* HomeViewModel.swift in Sources */,
+				1BB1725023A946B70041ED36 /* UIView+ActivityIndicator.swift in Sources */,
 				1B2F7D15239A90AF008243C8 /* TMDbApi.swift in Sources */,
 				1BB1724C23A9251F0041ED36 /* HomeView.swift in Sources */,
 				1B2F7D0B239A7A93008243C8 /* UIView+Extension.swift in Sources */,
@@ -406,6 +417,7 @@
 				1B2F7D30239AFB00008243C8 /* MovieCollectionViewCell.swift in Sources */,
 				1BD1B4A0239A6FC8004D09F9 /* TheMovie.xcdatamodeld in Sources */,
 				1B2F7D04239A799B008243C8 /* FavoriteViewController.swift in Sources */,
+				1B8A65ED23A949E90098A07C /* UIColor+RGBA.swift in Sources */,
 				1BD1B498239A6FC8004D09F9 /* SceneDelegate.swift in Sources */,
 				1B2F7D2B239AF8F9008243C8 /* MovieCollectionView.swift in Sources */,
 				1BB1724E23A9284F0041ED36 /* UIImageView+DownloadImage.swift in Sources */,

@@ -10,6 +10,7 @@ import UIKit
 
 extension UIImageView {
     func downloaded(from url: URL, contentMode mode: UIView.ContentMode = .scaleAspectFit) {
+        showFullScreenActivityIndicator()
         contentMode = mode
         URLSession.shared.dataTask(with: url) { data, response, error in
             guard
@@ -19,6 +20,7 @@ extension UIImageView {
                 let image = UIImage(data: data)
                 else { return }
             DispatchQueue.main.async {
+                self.hideFullScreenActivityIndicator()
                 self.image = image
             }
         }.resume()
