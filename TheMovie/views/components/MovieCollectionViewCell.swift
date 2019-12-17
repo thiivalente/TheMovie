@@ -10,6 +10,12 @@ import UIKit
 
 class MovieCollectionViewCell: UICollectionViewCell, ViewCode {
 
+    let imageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }()
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         setup()
@@ -20,11 +26,18 @@ class MovieCollectionViewCell: UICollectionViewCell, ViewCode {
     }
 
     func buildViewHierarchy() {
+        addSubviews([imageView])
     }
-    
+
     func buildConstraints() {
+        NSLayoutConstraint.activate([
+            imageView.topAnchor.constraint(equalTo: topAnchor),
+            imageView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            imageView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            imageView.bottomAnchor.constraint(equalTo: bottomAnchor)
+        ])
     }
-    
+
     func customizeViews() {
     }
 }

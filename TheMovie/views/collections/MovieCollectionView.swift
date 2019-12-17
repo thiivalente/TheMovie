@@ -23,7 +23,6 @@ class MovieCollectionViewFlowLayout: UICollectionViewFlowLayout {
         sectionInset = UIEdgeInsets(margin: AppStyleGuide.Margins.small.rawValue)
         minimumLineSpacing = AppStyleGuide.Margins.medium.rawValue
         minimumInteritemSpacing = AppStyleGuide.Margins.medium.rawValue
-        
     }
 }
 

@@ -22,6 +22,9 @@
 		1B2F7D2D239AF95E008243C8 /* ViewCodeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B2F7D2C239AF95E008243C8 /* ViewCodeProtocol.swift */; };
 		1B2F7D30239AFB00008243C8 /* MovieCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B2F7D2F239AFB00008243C8 /* MovieCollectionViewCell.swift */; };
 		1B91A8F3239AFD4A0045355D /* UIEdgeInsets+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B91A8F2239AFD4A0045355D /* UIEdgeInsets+Extension.swift */; };
+		1BB1724A23A9217D0041ED36 /* AppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB1724923A9217D0041ED36 /* AppViewController.swift */; };
+		1BB1724C23A9251F0041ED36 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB1724B23A9251F0041ED36 /* HomeView.swift */; };
+		1BB1724E23A9284F0041ED36 /* UIImageView+DownloadImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB1724D23A9284F0041ED36 /* UIImageView+DownloadImage.swift */; };
 		1BD1B496239A6FC8004D09F9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD1B495239A6FC8004D09F9 /* AppDelegate.swift */; };
 		1BD1B498239A6FC8004D09F9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD1B497239A6FC8004D09F9 /* SceneDelegate.swift */; };
 		1BD1B49A239A6FC8004D09F9 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD1B499239A6FC8004D09F9 /* HomeViewController.swift */; };
@@ -58,6 +61,9 @@
 		1B2F7D2C239AF95E008243C8 /* ViewCodeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCodeProtocol.swift; sourceTree = "<group>"; };
 		1B2F7D2F239AFB00008243C8 /* MovieCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCollectionViewCell.swift; sourceTree = "<group>"; };
 		1B91A8F2239AFD4A0045355D /* UIEdgeInsets+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIEdgeInsets+Extension.swift"; sourceTree = "<group>"; };
+		1BB1724923A9217D0041ED36 /* AppViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppViewController.swift; path = TheMovie/Utils/AppViewController.swift; sourceTree = SOURCE_ROOT; };
+		1BB1724B23A9251F0041ED36 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		1BB1724D23A9284F0041ED36 /* UIImageView+DownloadImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UIImageView+DownloadImage.swift"; path = "TheMovie/Utils/Extensions/UIImageView+DownloadImage.swift"; sourceTree = SOURCE_ROOT; };
 		1BD1B492239A6FC8004D09F9 /* TheMovie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TheMovie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1BD1B495239A6FC8004D09F9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1BD1B497239A6FC8004D09F9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -97,6 +103,7 @@
 				1B2F7D07239A7A6F008243C8 /* AppStyleGuide.swift */,
 				1B2F7D0C239A7AB7008243C8 /* ColorMode.swift */,
 				1B2F7D2C239AF95E008243C8 /* ViewCodeProtocol.swift */,
+				1BB1724923A9217D0041ED36 /* AppViewController.swift */,
 			);
 			path = utils;
 			sourceTree = "<group>";
@@ -106,6 +113,7 @@
 			children = (
 				1B2F7D0A239A7A93008243C8 /* UIView+Extension.swift */,
 				1B91A8F2239AFD4A0045355D /* UIEdgeInsets+Extension.swift */,
+				1BB1724D23A9284F0041ED36 /* UIImageView+DownloadImage.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -166,6 +174,7 @@
 			children = (
 				1B2F7D2E239AFAE7008243C8 /* collections */,
 				1B2F7D29239AF8E4008243C8 /* components */,
+				1BB1724B23A9251F0041ED36 /* HomeView.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -385,6 +394,7 @@
 				1B2F7D13239A8E71008243C8 /* NetworkService.swift in Sources */,
 				1B2F7D21239AE38D008243C8 /* HomeViewModel.swift in Sources */,
 				1B2F7D15239A90AF008243C8 /* TMDbApi.swift in Sources */,
+				1BB1724C23A9251F0041ED36 /* HomeView.swift in Sources */,
 				1B2F7D0B239A7A93008243C8 /* UIView+Extension.swift in Sources */,
 				1B91A8F3239AFD4A0045355D /* UIEdgeInsets+Extension.swift in Sources */,
 				1BD1B49A239A6FC8004D09F9 /* HomeViewController.swift in Sources */,
@@ -398,6 +408,8 @@
 				1B2F7D04239A799B008243C8 /* FavoriteViewController.swift in Sources */,
 				1BD1B498239A6FC8004D09F9 /* SceneDelegate.swift in Sources */,
 				1B2F7D2B239AF8F9008243C8 /* MovieCollectionView.swift in Sources */,
+				1BB1724E23A9284F0041ED36 /* UIImageView+DownloadImage.swift in Sources */,
+				1BB1724A23A9217D0041ED36 /* AppViewController.swift in Sources */,
 				1B2F7D25239AE722008243C8 /* MovieWorker.swift in Sources */,
 				1B2F7D0D239A7AB7008243C8 /* ColorMode.swift in Sources */,
 			);
