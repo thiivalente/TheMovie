@@ -6,4 +6,11 @@
 //  Copyright © 2019 Thiago Valente. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+class AppViewController: UIViewController {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.backgroundColor = AppStyleGuide.Colors.background.uiColor
+    }
+}

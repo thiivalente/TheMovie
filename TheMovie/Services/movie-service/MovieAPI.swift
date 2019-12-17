@@ -18,7 +18,11 @@ class MovieAPI: MovieAPIProtocol {
                     completion([])
                     return
                 }
-
+                movieResponse.results.forEach({
+                    if let path = $0.posterPath {
+                        $0.posterPath = "https://image.tmdb.org/t/p/w500" + path
+                    }
+                })
                 completion(movieResponse.results)
             case .failure(let error):
                 print(error)

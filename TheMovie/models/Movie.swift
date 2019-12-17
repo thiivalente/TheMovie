@@ -15,7 +15,7 @@ struct MovieResponse: Decodable {
     let results: [Movie]
 }
 
-struct Movie: Decodable {
+class Movie: Decodable {
     var id: Int
     var title: String
     var posterPath: String?

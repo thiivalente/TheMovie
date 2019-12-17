@@ -6,7 +6,7 @@
 //  Copyright © 2019 Thiago Valente. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class HomeViewModel {
     unowned let controller: HomeViewController
