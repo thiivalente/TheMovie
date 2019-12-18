@@ -20,9 +20,9 @@ class MovieCollectionViewFlowLayout: UICollectionViewFlowLayout {
 
     private func defaultCollectionViewFlowLayoutConfiguration () {
         scrollDirection = .vertical
-        sectionInset = UIEdgeInsets(margin: AppStyleGuide.Margins.small.rawValue)
-        minimumLineSpacing = AppStyleGuide.Margins.medium.rawValue
-        minimumInteritemSpacing = AppStyleGuide.Margins.medium.rawValue
+        sectionInset = UIEdgeInsets(margin: AppStyleGuide.Margins.xsmall.rawValue)
+        minimumLineSpacing = AppStyleGuide.Margins.xsmall.rawValue
+        minimumInteritemSpacing = AppStyleGuide.Margins.xsmall.rawValue
     }
 }
 

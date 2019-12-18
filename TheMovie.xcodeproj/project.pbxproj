@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1B2F7D04239A799B008243C8 /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B2F7D03239A799B008243C8 /* FavoriteViewController.swift */; };
 		1B2F7D08239A7A6F008243C8 /* AppStyleGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B2F7D07239A7A6F008243C8 /* AppStyleGuide.swift */; };
 		1B2F7D0B239A7A93008243C8 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B2F7D0A239A7A93008243C8 /* UIView+Extension.swift */; };
 		1B2F7D0D239A7AB7008243C8 /* ColorMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B2F7D0C239A7AB7008243C8 /* ColorMode.swift */; };
@@ -49,7 +48,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1B2F7D03239A799B008243C8 /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
 		1B2F7D07239A7A6F008243C8 /* AppStyleGuide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStyleGuide.swift; sourceTree = "<group>"; };
 		1B2F7D0A239A7A93008243C8 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		1B2F7D0C239A7AB7008243C8 /* ColorMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorMode.swift; sourceTree = "<group>"; };
@@ -228,7 +226,7 @@
 				1BD1B4BA239A708C004D09F9 /* application */,
 				1BD1B4C2239A7571004D09F9 /* services */,
 				1B2F7D28239AF8CC008243C8 /* views */,
-				1BD1B4BB239A7093004D09F9 /* controllers */,
+				1BD1B4BB239A7093004D09F9 /* logic */,
 				1B2F7D22239AE62E008243C8 /* worker */,
 				1B2F7D19239A995A008243C8 /* models */,
 				1B2F7D05239A7A4B008243C8 /* utils */,
@@ -258,13 +256,12 @@
 			path = application;
 			sourceTree = "<group>";
 		};
-		1BD1B4BB239A7093004D09F9 /* controllers */ = {
+		1BD1B4BB239A7093004D09F9 /* logic */ = {
 			isa = PBXGroup;
 			children = (
 				1B2F7D1D239AE2EE008243C8 /* home */,
-				1B2F7D03239A799B008243C8 /* FavoriteViewController.swift */,
 			);
-			path = controllers;
+			path = logic;
 			sourceTree = "<group>";
 		};
 		1BD1B4C2239A7571004D09F9 /* services */ = {
@@ -416,7 +413,6 @@
 				1B2F7D2D239AF95E008243C8 /* ViewCodeProtocol.swift in Sources */,
 				1B2F7D30239AFB00008243C8 /* MovieCollectionViewCell.swift in Sources */,
 				1BD1B4A0239A6FC8004D09F9 /* TheMovie.xcdatamodeld in Sources */,
-				1B2F7D04239A799B008243C8 /* FavoriteViewController.swift in Sources */,
 				1B8A65ED23A949E90098A07C /* UIColor+RGBA.swift in Sources */,
 				1BD1B498239A6FC8004D09F9 /* SceneDelegate.swift in Sources */,
 				1B2F7D2B239AF8F9008243C8 /* MovieCollectionView.swift in Sources */,

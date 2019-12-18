@@ -51,14 +51,14 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
 
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: customView.collectionView.cellIdentifier, for: indexPath) as? MovieCollectionViewCell else { return UICollectionViewCell() }
         if let posterPath = movie.posterPath {
-            cell.imageView.downloaded(from: posterPath)
+            cell.imageView.downloaded(from: posterPath, contentMode: .scaleAspectFill)
         }
         return cell
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 
-        let numberOfitemsForRow: CGFloat = 2
+        let numberOfitemsForRow: CGFloat = 3
 
         guard let flowLayout = collectionViewLayout as? UICollectionViewFlowLayout else { return .zero }
 
@@ -68,6 +68,6 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
 
         let size = Int((collectionView.bounds.width - totalSpace) / CGFloat(numberOfitemsForRow))
 
-        return CGSize(width: size, height: size)
+        return CGSize(width: size, height: Int(Double(size)*1.5))
     }
 }

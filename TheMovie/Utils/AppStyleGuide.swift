@@ -12,6 +12,7 @@ enum AppStyleGuide {
 
     // MARK: Margins
     enum Margins: CGFloat {
+        case zero = 0.0
         case xsmall = 4.0
         case small = 8.0
         case medium = 16.0

@@ -9,7 +9,7 @@
 import UIKit
 
 extension UIImageView {
-    func downloaded(from url: URL, contentMode mode: UIView.ContentMode = .scaleAspectFit) {
+    func downloaded(from url: URL, contentMode mode: UIView.ContentMode = .scaleAspectFit, _ completion: @escaping (_ image: UIImage?) -> Void = { _ in }) {
         showFullScreenActivityIndicator()
         contentMode = mode
         URLSession.shared.dataTask(with: url) { data, response, error in
@@ -22,12 +22,15 @@ extension UIImageView {
             DispatchQueue.main.async {
                 self.hideFullScreenActivityIndicator()
                 self.image = image
+                completion(image)
             }
         }.resume()
     }
 
-    func downloaded(from link: String, contentMode mode: UIView.ContentMode = .scaleAspectFit) {
+    func downloaded(from link: String, contentMode mode: UIView.ContentMode = .scaleAspectFit, _ completion: @escaping (_ image: UIImage?) -> Void = { _ in  }) {
         guard let url = URL(string: link) else { return }
-        downloaded(from: url, contentMode: mode)
+        downloaded(from: url, contentMode: mode) { image in
+            completion(image)
+        }
     }
 }
