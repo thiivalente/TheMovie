@@ -33,12 +33,16 @@ class HomeViewController: AppViewController {
     }
 
     func loadData() {
-        movieListViewModel.moviesBehaviorRelay.subscribe(onNext: { _ in
-//            self.customView.collectionView.performBatchUpdates({
-//                let indexPath = IndexPath(row: self.movieListViewModel.moviesBehaviorRelay.value.count-1, section: 0)
-//                self.customView.collectionView.insertItems(at: [indexPath])
-//            }, completion: nil)
-            self.customView.collectionView.reloadData()
+        movieListViewModel.movieResponseBehavior.subscribe(onNext: { movieResponse in
+            self.customView.collectionView.performBatchUpdates({
+                var indexPaths: [IndexPath] = []
+                guard let lastResponse = movieResponse.last else { return }
+                for index in lastResponse.results.indices {
+                    let row = self.movieListViewModel.firstRowInPage() + index
+                    indexPaths.append(IndexPath(row: row, section: 0))
+                }
+                self.customView.collectionView.insertItems(at: indexPaths)
+            }, completion: nil)
         }).disposed(by: disposeBag)
 
         movieListViewModel.fetchMovies()
@@ -51,9 +55,8 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let movie = movieListViewModel.movieAt(indexPath.row)
-
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: customView.collectionView.cellIdentifier, for: indexPath) as? MovieCollectionViewCell else { return UICollectionViewCell() }
+        guard let movie = movieListViewModel.movieAt(indexPath.row),
+              let cell = collectionView.dequeueReusableCell(withReuseIdentifier: customView.collectionView.cellIdentifier, for: indexPath) as? MovieCollectionViewCell else { return UICollectionViewCell() }
         if let posterPath = movie.posterPath {
             cell.imageView.downloaded(from: posterPath, contentMode: .scaleAspectFill)
         }

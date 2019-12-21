@@ -14,27 +14,36 @@ struct MovieListViewModel {
 
     private let movieWorker: MovieWorkerProtocol = MovieWorker()
 
-    var movieResponse = BehaviorRelay<[MovieResponse]>(value: [])
-    var moviesBehaviorRelay = BehaviorRelay<[Movie]>(value: [])
+    var movieResponseBehavior = BehaviorRelay<[MovieResponse]>(value: [])
 
     func fetchMovies() {
-        let nextPage = movieResponse.value.last == nil ? 0 : movieResponse.value.last!.page+1
+        let nextPage = movieResponseBehavior.value.last == nil ? 1 : movieResponseBehavior.value.last!.page+1
         movieWorker.fetchMovieResponse(in: nextPage) { movieResponse in
-            self.movieResponse.accept(self.movieResponse.value + [movieResponse])
-            self.moviesBehaviorRelay.accept(self.moviesBehaviorRelay.value + movieResponse.results)
+            self.movieResponseBehavior.accept(self.movieResponseBehavior.value + [movieResponse])
         }
     }
 
-    func movieAt(_ index: Int) -> Movie {
-        return moviesBehaviorRelay.value[index]
+    func movieAt(_ index: Int) -> Movie? {
+        guard let lastMovie = movieResponseBehavior.value.last else { return nil}
+        return lastMovie.results[index % movieWorker.perPage]
     }
 
     func totalMovies() -> Int {
-        return self.moviesBehaviorRelay.value.count
+        guard let lastResponse = movieResponseBehavior.value.last else {
+            return 0
+        }
+        if lastResponse.page != lastResponse.totalPages {
+            return lastResponse.page * movieWorker.perPage
+        }
+        return lastResponse.totalResults
+    }
+
+    func firstRowInPage() -> Int {
+        return (self.movieResponseBehavior.value.count - 1) * movieWorker.perPage
     }
 
     func canFetch() -> Bool {
-        guard let lastResponse = movieResponse.value.last else {
+        guard let lastResponse = movieResponseBehavior.value.last else {
             return true
         }
         return lastResponse.page < lastResponse.totalPages

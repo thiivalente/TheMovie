@@ -13,10 +13,13 @@ protocol MovieAPIProtocol {
 }
 
 protocol MovieWorkerProtocol {
+    var perPage: Int { get set }
     func fetchMovieResponse(in page: Int, _ completion: @escaping (MovieResponse) -> Void)
 }
 
 class MovieWorker: MovieWorkerProtocol {
+
+    var perPage: Int = 20
 
     let api = MovieAPI()
 

@@ -46,7 +46,7 @@ extension TMDbApi: EndpointType {
     var query: String {
         switch self {
         case .fetchPopularMovies(let page):
-            return "&\(page)"
+            return "&page=\(page)"
         }
     }
 
