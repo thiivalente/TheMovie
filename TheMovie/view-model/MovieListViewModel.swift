@@ -24,8 +24,8 @@ struct MovieListViewModel {
     }
 
     func movieAt(_ index: Int) -> Movie? {
-        guard let lastMovie = movieResponseBehavior.value.last else { return nil}
-        return lastMovie.results[index % movieWorker.perPage]
+        let resultIndex = index / movieWorker.perPage
+        return movieResponseBehavior.value[resultIndex].results[index % movieWorker.perPage]
     }
 
     func totalMovies() -> Int {
@@ -38,7 +38,7 @@ struct MovieListViewModel {
         return lastResponse.totalResults
     }
 
-    func firstRowInPage() -> Int {
+    func nextStartIndexResult() -> Int {
         return (self.movieResponseBehavior.value.count - 1) * movieWorker.perPage
     }
 

@@ -38,7 +38,7 @@ class HomeViewController: AppViewController {
                 var indexPaths: [IndexPath] = []
                 guard let lastResponse = movieResponse.last else { return }
                 for index in lastResponse.results.indices {
-                    let row = self.movieListViewModel.firstRowInPage() + index
+                    let row = self.movieListViewModel.nextStartIndexResult() + index
                     indexPaths.append(IndexPath(row: row, section: 0))
                 }
                 self.customView.collectionView.insertItems(at: indexPaths)
