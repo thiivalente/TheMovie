@@ -33,10 +33,11 @@ class HomeViewController: AppViewController {
     }
 
     func loadData() {
-
-        movieListViewModel.moviesObservable.subscribe(onNext: { movies in
-//            let indexPath = IndexPath(row: self.movieListViewModel.movies.value.count-1, section: 0)
-//            self.customView.collectionView.insertItems(at: [indexPath])
+        movieListViewModel.moviesBehaviorRelay.subscribe(onNext: { _ in
+//            self.customView.collectionView.performBatchUpdates({
+//                let indexPath = IndexPath(row: self.movieListViewModel.moviesBehaviorRelay.value.count-1, section: 0)
+//                self.customView.collectionView.insertItems(at: [indexPath])
+//            }, completion: nil)
             self.customView.collectionView.reloadData()
         }).disposed(by: disposeBag)
 
@@ -46,17 +47,23 @@ class HomeViewController: AppViewController {
 
 extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return movieListViewModel.movies.value.count
+        return movieListViewModel.totalMovies()
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let movie = movieListViewModel.movies.value[indexPath.row]
+        let movie = movieListViewModel.movieAt(indexPath.row)
 
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: customView.collectionView.cellIdentifier, for: indexPath) as? MovieCollectionViewCell else { return UICollectionViewCell() }
         if let posterPath = movie.posterPath {
             cell.imageView.downloaded(from: posterPath, contentMode: .scaleAspectFill)
         }
         return cell
+    }
+
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        if indexPath.row == movieListViewModel.totalMovies() - 6 && movieListViewModel.canFetch() {
+            movieListViewModel.fetchMovies()
+        }
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

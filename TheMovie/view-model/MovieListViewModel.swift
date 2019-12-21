@@ -11,22 +11,32 @@ import RxSwift
 import RxCocoa
 
 struct MovieListViewModel {
-    var movies = BehaviorRelay<[Movie]>(value: [])
 
-    var moviesObservable: Observable<[Movie]> {
-        return movies.asObservable()
-    }
+    private let movieWorker: MovieWorkerProtocol = MovieWorker()
 
-    private let movieResponseListVM = MovieResponseListViewModel()
-    private let disposeBag = DisposeBag()
+    var movieResponse = BehaviorRelay<[MovieResponse]>(value: [])
+    var moviesBehaviorRelay = BehaviorRelay<[Movie]>(value: [])
 
     func fetchMovies() {
-        movieResponseListVM.movieResponseObservable.subscribe(onNext: { responses in
-            responses.forEach { response in
-                let currentValues = self.movies.value
-                self.movies.accept(currentValues + response.results)
-            }
-        }).disposed(by: disposeBag)
-        movieResponseListVM.fetchMovieResponse()
+        let nextPage = movieResponse.value.last == nil ? 0 : movieResponse.value.last!.page+1
+        movieWorker.fetchMovieResponse(in: nextPage) { movieResponse in
+            self.movieResponse.accept(self.movieResponse.value + [movieResponse])
+            self.moviesBehaviorRelay.accept(self.moviesBehaviorRelay.value + movieResponse.results)
+        }
+    }
+
+    func movieAt(_ index: Int) -> Movie {
+        return moviesBehaviorRelay.value[index]
+    }
+
+    func totalMovies() -> Int {
+        return self.moviesBehaviorRelay.value.count
+    }
+
+    func canFetch() -> Bool {
+        guard let lastResponse = movieResponse.value.last else {
+            return true
+        }
+        return lastResponse.page < lastResponse.totalPages
     }
 }
