@@ -11,7 +11,7 @@ import RxSwift
 import RxCocoa
 
 struct MovieResponseListViewModel {
-    private var movieResponse = PublishSubject<[MovieResponse]>()
+    private var movieResponse = BehaviorRelay<[MovieResponse]>(value: [])
 
     private let movieWorker: MovieWorkerProtocol = MovieWorker()
 
@@ -20,13 +20,11 @@ struct MovieResponseListViewModel {
     }
 
     private let disposeBag = DisposeBag()
-    
+
     func fetchMovieResponse() {
-        movieResponse.subscribe(onNext: {
-            let nextPage = $0.last == nil ? 0 : $0.last!.page+1
-            self.movieWorker.fetchMovies(in: nextPage) { movies in
-                // Change to movieResponse
-            }
-        }).disposed(by: disposeBag)
+        let nextPage = self.movieResponse.value.last == nil ? 0 : self.movieResponse.value.last!.page+1
+        self.movieWorker.fetchMovieResponse(in: nextPage) { movieResponse in
+            self.movieResponse.accept(self.movieResponse.value + [movieResponse])
+        }
     }
 }

@@ -7,19 +7,15 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 class HomeViewController: AppViewController {
 
     private var customView = HomeView()
 
-    var movies: [Movie] = [] {
-        didSet {
-            customView.collectionView.reloadData()
-        }
-    }
-    var viewModel: HomeViewModel {
-        return HomeViewModel(controller: self)
-    }
+    let movieListViewModel = MovieListViewModel()
+    let disposeBag = DisposeBag()
 
     override func loadView() {
         view = customView
@@ -37,17 +33,24 @@ class HomeViewController: AppViewController {
     }
 
     func loadData() {
-        viewModel.fetchMovies()
+
+        movieListViewModel.moviesObservable.subscribe(onNext: { movies in
+//            let indexPath = IndexPath(row: self.movieListViewModel.movies.value.count-1, section: 0)
+//            self.customView.collectionView.insertItems(at: [indexPath])
+            self.customView.collectionView.reloadData()
+        }).disposed(by: disposeBag)
+
+        movieListViewModel.fetchMovies()
     }
 }
 
 extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return movies.count
+        return movieListViewModel.movies.value.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let movie = movies[indexPath.row]
+        let movie = movieListViewModel.movies.value[indexPath.row]
 
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: customView.collectionView.cellIdentifier, for: indexPath) as? MovieCollectionViewCell else { return UICollectionViewCell() }
         if let posterPath = movie.posterPath {
