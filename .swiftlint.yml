@@ -10,3 +10,7 @@ force_cast:
 
 nesting:
  type_level: 3
+
+excluded: # paths to ignore during linting. Takes precedence over `included`.
+  - Carthage
+  - Pods
