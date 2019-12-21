@@ -9,21 +9,21 @@
 import Foundation
 
 protocol MovieAPIProtocol {
-    func listMovies(page: Int, _ completion: @escaping ([Movie]) -> Void)
+    func listMovieResponse(page: Int, _ completion: @escaping (MovieResponse) -> Void)
 }
 
 protocol MovieWorkerProtocol {
-    func fetchMovies(in page: Int, _ completion: @escaping ([Movie]) -> Void)
+    func fetchMovieResponse(in page: Int, _ completion: @escaping (MovieResponse) -> Void)
 }
 
 class MovieWorker: MovieWorkerProtocol {
 
     let api = MovieAPI()
 
-    func fetchMovies(in page: Int = 10, _ completion: @escaping ([Movie]) -> Void) {
-        api.listMovies(page: page) { (movies) in
+    func fetchMovieResponse(in page: Int = 10, _ completion: @escaping (MovieResponse) -> Void) {
+        api.listMovieResponse(page: page) { moviesResponse in
             DispatchQueue.main.async {
-                completion(movies)
+                completion(moviesResponse)
             }
         }
     }
